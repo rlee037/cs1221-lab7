@@ -11,21 +11,25 @@ def createSPI(device):
   return spi
 
 def WelfordsAlgorithm(val):
-  # pp
+  # 
+  return 1
+
 
 if __name__ == '__main__':
-    try:
-        spi1 = createSPI(0)
-        spi2 = createSPI(1)
-        while True:
-            newLightValue = spi1.readbytes(1)          # Receive data from microcontroller 1
-            average = WelfordsAlgorithm(newLightValue) # Calculate running average using Welford's algorithm
-            spi2.xfer(average)                         # Send new value to microcontroller 2
-            time.sleep(1)                              # Delay for 1 second
-    except KeyboardInterrupt:
-        # Close all open SPI (spi.close())
-        spi1.close()
-        spi2.close()
-        exit()
+  try:
+    spi1 = createSPI(0)
+    spi2 = createSPI(1)
+    send = []
+    while True:
+      newLightValue = spi1.readbytes(1)          # Receive data from microcontroller 1
+      average = WelfordsAlgorithm(newLightValue) # Calculate running average using Welford's algorithm
+      send.append(average)
+      spi2.xfer(send)                            # Send new value to microcontroller 2
+      time.sleep(1)                              # Delay for 1 second
+  except KeyboardInterrupt:
+      # Close all open SPI (spi.close())
+      spi1.close()
+      spi2.close()
+      exit()
 
 

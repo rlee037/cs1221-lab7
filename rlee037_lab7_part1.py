@@ -1,4 +1,14 @@
-# lab 7 part 1
+# Partner 1 Name & E-mail: Rick Lee,   rlee037@ucr.edu
+# Partner 2 Name & E-mail: Sky DeBaun, sdeba001@ucr,edu
+# Lab Section: 021
+# Assignment: Lab 7 Part 1
+# Exercise Description: Get SPI working on the Raspberry Pi
+#                       Receive data on microcontroller 1
+#                       Use Welford's Algorithm on the data to get the average of all data received
+#                       Transmit averages to microcontroller 2
+#
+# I acknowledge all content contained herein, excluding template
+# or example code, is my original work.
 
 import time
 import spidev

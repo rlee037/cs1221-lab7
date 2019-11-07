@@ -48,7 +48,7 @@ if __name__ == '__main__':
       print(newLightValue[0])
       average = WelfordsAlgorithm(newLightValue[0]) # Calculate running average using Welford's algorithm
       send = []
-      send.append(average)
+      send.append(int(average))
       spi2.xfer(send)                               # Send new value to microcontroller 2
       time.sleep(1)                                 # Delay for 1 second
   except KeyboardInterrupt:

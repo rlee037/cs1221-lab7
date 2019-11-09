@@ -45,10 +45,10 @@ if __name__ == '__main__':
     spi2 = createSPI(1)
     while True:
       newLightValue = spi1.readbytes(1)             # Receive data from microcontroller 1
-      print(newLightValue[0])
       average = WelfordsAlgorithm(newLightValue[0]) # Calculate running average using Welford's algorithm
       send = []
       send.append(int(average))
+      print(newLightValue[0], ", ", send[0])
       spi2.xfer(send)                               # Send new value to microcontroller 2
       time.sleep(1)                                 # Delay for 1 second
   except KeyboardInterrupt:
